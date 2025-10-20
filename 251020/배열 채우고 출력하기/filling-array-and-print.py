@@ -1,0 +1,3 @@
+a0, a1, a2, a3, a4, a5, a6, a7, a8, a9 = input().split()
+
+print(f"{a9}{a8}{a7}{a6}{a5}{a4}{a3}{a2}{a1}{a0}")
