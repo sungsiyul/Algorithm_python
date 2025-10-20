@@ -4,3 +4,5 @@ n = int(input())
 def f(n):
     for _ in range(n):
         print("12345^&*()_")
+
+f(n)
