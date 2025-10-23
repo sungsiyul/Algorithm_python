@@ -5,14 +5,14 @@ c = int(c)
 # Please write your code here.
 def cal(a, o, c):
     if o == '+':
-        return a+c
+        return f"{a} {o} {c} = {a+c}"
     elif o == '-':
-        return a-c
+        return f"{a} {o} {c} = {a-c}"
     elif o == '/':
-        return int(a/c)
+        return f"{a} {o} {c} = {int(a/c)}"
     elif o == '*':
-        return a*c
+        return f"{a} {o} {c} = {a*c}"
     else:
         return False
 
-print(f"{a} {o} {c} = {cal(a, o, c)}")
+print(cal(a, o, c))
