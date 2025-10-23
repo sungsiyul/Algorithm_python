@@ -15,4 +15,4 @@ def cal(a, o, c):
     else:
         return False
 
-print(def(cal(a, o, c)))
+print(cal(a, o, c))
