@@ -26,16 +26,16 @@ cols = []
 for row in grid:
     fin_cnt += is_happy_arr(row, m)
 # 행렬전환
-# _grid = list(zip(*grid))
+_grid = list(zip(*grid))
 # # 각 열마다
-# for col in _grid:
-#     fin_cnt += is_happy_arr(col, m)
-
-col = [0] * n
-for j in range(n):
-    for i in range(n):
-        col[i] = grid[i][j]
+for col in _grid:
     fin_cnt += is_happy_arr(col, m)
+
+# col = [0] * n
+# for j in range(n):
+#     for i in range(n):
+#         col[i] = grid[i][j]
+#     fin_cnt += is_happy_arr(col, m)
 
 print(fin_cnt)
 
