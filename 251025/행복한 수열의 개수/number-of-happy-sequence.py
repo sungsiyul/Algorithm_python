@@ -23,7 +23,7 @@ for row in grid:
 _grid = list(zip(*grid))
 # 각 열마다
 for col in _grid:
-    fin_cnt += is_happy_arr(col, m)
+    fin_cnt += is_happy_arr(list(col), m)
 
 print(fin_cnt)
 
