@@ -15,9 +15,9 @@ def bfs(start_points, maps):
     rows = len(maps)
     cols = len(maps[0])
     queue = deque()
+    visited = [[False] * cols for _ in range(rows)]
     for start_x, start_y in start_points:
         queue.append((start_x-1, start_y-1))
-    visited = [[False] * cols for _ in range(rows)]
     dxs = [0, 0, -1, 1]
     dys = [-1, 1, 0, 0]
     cnt = 0
