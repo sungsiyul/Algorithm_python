@@ -18,19 +18,24 @@ def bfs(start_points, maps):
     visited = [[False] * cols for _ in range(rows)]
     for start_x, start_y in start_points:
         queue.append((start_x-1, start_y-1))
+        visited[start_x-1][start_y-1] = True
     dxs = [0, 0, -1, 1]
     dys = [-1, 1, 0, 0]
-    cnt = 0
     while queue:
         cur_x, cur_y = queue.popleft() 
         for dx, dy in zip(dxs, dys):
             next_x = cur_x + dx
             next_y = cur_y + dy
             if next_x >= 0 and next_x <= rows-1 and next_y >= 0 and next_y <= cols-1:
-                if not visited[next_x][next_y] and maps[next_x][next_y] == 0:
+                if maps[next_x][next_y] == 0 and not visited[next_x][next_y]:
                     queue.append((next_x, next_y))
                     visited[next_x][next_y] = True
-                    cnt += 1
-    return cnt
+                    
+    return visited
 
-print(bfs(points, grid))
+visited = bfs(points, grid)
+cnt = 0
+for v_row in visited:
+    for v in v_row:
+        if v: cnt += 1
+print(cnt)
