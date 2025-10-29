@@ -10,7 +10,14 @@ def gcd(a, b):
 def lcm(a, b):
     return a*b // gcd(a, b)
 
-lcm_v = 1
-for i in range(len(arr)-1):
-    arr[i+1] = lcm(arr[i], arr[i+1])
-print(arr[-1])
+# lcm_v = 1
+# for i in range(len(arr)-1):
+#     arr[i+1] = lcm(arr[i], arr[i+1])
+# print(arr[-1])
+
+def f(i):
+    if i == 1:
+        return arr[1]
+    return lcm(f(i-1), arr[i])
+
+print(f(n-1))
