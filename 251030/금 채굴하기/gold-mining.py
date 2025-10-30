@@ -35,13 +35,13 @@ def bfs(start_x, start_y, k, grid):
                         if grid[next_x][next_y] == 1:                            
                             num_of_gold += 1
     return num_of_gold
-    
-num_of_gold_list = []
+
+max_num_of_gold = 0
 for k in range(n):
     for y in range(n):
         for x in range(n):
             num_of_gold = bfs(x, y, k, grid)
             if num_of_gold * m >= k**2 + (k+1)**2:
-                num_of_gold_list.append(num_of_gold)
+                max_num_of_gold = max(max_num_of_gold, num_of_gold)
 
-print(max(num_of_gold_list))
+print(max_num_of_gold)
