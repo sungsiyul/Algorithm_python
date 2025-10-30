@@ -7,8 +7,7 @@ def get_area_size(row, col, height, width):
     area_size = 0
     for h in range(height):
         for w in range(width):
-            v = grid[row + h][col + w]
-            if v < 0:
+            if grid[row + h][col + w] <= 0:
                 return -1
             area_size += 1
     return area_size
