@@ -5,9 +5,9 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 from collections import deque
 
 def is_in_a_grid(x, y, n):
-    return x >= 0 and x <= n-1 and y >= 0 and y <= n-1
+    return 0 <= x < n and 0 <= y < n
 
-def bfs(start_x, start_y, k, grid):
+def bfs(start_x, start_y, n, k, grid):
     queue = deque()
     visited = [[False] * n for _ in range(n)]
     num_of_gold = 0
@@ -37,10 +37,11 @@ def bfs(start_x, start_y, k, grid):
     return num_of_gold
 
 max_num_of_gold = 0
-for k in range(n):
+# 가장 먼 이동을 생각해보면 n + n - 1 만큼 이동할 수 있음 (좌상단 -> 우하단)
+for k in range(n * 2):
     for y in range(n):
         for x in range(n):
-            num_of_gold = bfs(x, y, k, grid)
+            num_of_gold = bfs(x, y, n, k, grid)
             if num_of_gold * m >= k**2 + (k+1)**2:
                 max_num_of_gold = max(max_num_of_gold, num_of_gold)
 
