@@ -7,7 +7,7 @@ from collections import deque
 def is_in_a_grid(x, y, n):
     return 0 <= x < n and 0 <= y < n
 
-def bfs(start_x, start_y, n, k, grid):
+def bfs(start_x, start_y, k, grid, n):
     queue = deque()
     visited = [[False] * n for _ in range(n)]
     num_of_gold = 0
@@ -27,7 +27,7 @@ def bfs(start_x, start_y, n, k, grid):
             for dx, dy in zip(dxs, dys):
                 next_x, next_y = cur_x + dx, cur_y + dy
                 if is_in_a_grid(next_x, next_y, n):
-                    if visited[next_x][next_y] == False:
+                    if not visited[next_x][next_y]:
                         # 갈 수 있는 곳이라면 일단 가기
                         visited[next_x][next_y] = True
                         queue.append((next_x, next_y, next_step))
@@ -37,12 +37,12 @@ def bfs(start_x, start_y, n, k, grid):
     return num_of_gold
 
 max_num_of_gold = 0
-# 가장 먼 이동을 생각해보면 n + n - 1 만큼 이동할 수 있음 (좌상단 -> 우하단)
-for k in range(n * 2):
+for k in range(2 * n):  # 가장 먼 이동을 생각해보면 n + n - 1 만큼 이동할 수 있음 (좌상단 -> 우하단)
     for y in range(n):
         for x in range(n):
-            num_of_gold = bfs(x, y, n, k, grid)
-            if num_of_gold * m >= k**2 + (k+1)**2:
+            num_of_gold = bfs(x, y, k, grid, n)
+            cost = k * k + (k + 1) * (k + 1)
+            if num_of_gold * m >= cost:
                 max_num_of_gold = max(max_num_of_gold, num_of_gold)
 
 print(max_num_of_gold)
