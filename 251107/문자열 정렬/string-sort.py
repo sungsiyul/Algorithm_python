@@ -1,6 +1,6 @@
 str = input()
 
 # Please write your code here.
-str.sort()
+stre = sorted(str)
 
-print(str)
+print(''.join(stre))
