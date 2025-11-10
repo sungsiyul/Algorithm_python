@@ -6,4 +6,4 @@ def get_minutes(a, b, c):
 
 time = get_minutes(a, b, c) - get_minutes(11, 11, 11)
 
-print(time if time > 0 else -1)
+print(time if time >= 0 else -1)
