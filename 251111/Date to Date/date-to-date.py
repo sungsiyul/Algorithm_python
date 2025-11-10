@@ -5,13 +5,13 @@ m1, d1, m2, d2 = map(int, input().split())
 days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 before = 0
-for m in range(m1):
+for m in range(m1-1):
     before += days[m]
 before += d1
 
 after = 0
-for m in range(m2):
-    after += days[m]
+for m_ in range(m2-1):
+    after += days[m_]
 after += d2
 
-print(after - before)
+print(after - before + 1)
